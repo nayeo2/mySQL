@@ -4,10 +4,10 @@
 데이터베이스를 생성해야 합니다.
 DEFAULT CHARACTER SET UTF8; 을 붙여주시면 한글설정이 됩니다. 
 내가 지정하는 이름 등을 제외한 쿼리문은 대문자로만 작성하는게 일반적입니다.*/
-CREATE DATABASE bitcamp06 DEFAULT CHARACTER SET UTF8;
+CREATE DATABASE swudb DEFAULT CHARACTER SET UTF8;
 
 /* 데이터베이스 조회는 좌측 하단 중간쯤의 Schemas를 클릭하고 -> 새로고침
-한 다음, bitcamp06이 생성된게 확인되면 우클릭 -> set as default schemas
+한 다음, swudb 생성된게 확인되면 우클릭 -> set as default schemas
 선택시 볼드처리되고, 지금부터 적는 쿼리문은 해당 DB에 들어간다는 의미임. */
 /* 해당 DB에 접근할 수 있는 사용자 계정 생성
 USER - id역할, IDENTIFIED BY - pw역할 */
@@ -15,7 +15,7 @@ CREATE USER 'adminid' IDENTIFIED BY '2023502';
 
 /* 사용자에게 권한 부여 : GRANT 주고싶은기능1, 기능2,...
 만약 모든 권한을 주고 싶다면 ALL PRIVELEGES(모든권한) TO 부여받을계정명 */
-GRANT ALL PRIVILEGES ON bitcamp06.* to 'adminid';
+GRANT ALL PRIVILEGES ON swudb.* to 'adminid';
 
 /* 테이블 생성 명령
 PRIMARY KEY : 컬럼의 주요 키를 뜻하고, 중복 데이터 방지도 겸함
@@ -55,7 +55,7 @@ SELECT email, u_number, u_id FROM users;
 /* 계정을 하나 더 생성하겠습니다.
 이번 계정은 SELECT 권한만 주겠습니다. */
 CREATE USER 'adminid2' IDENTIFIED BY '2023502';
-GRANT SELECT ON bitcamp06.* to 'adminid2';
+GRANT SELECT ON swudb.* to 'adminid2';
 
 -- users 테이블에 주소 컬럼을 추가해보겠습니다 
 -- ALTER TABLE 테이블명 ADD ((추가컬럼명 자료타입(크기));
